@@ -60,7 +60,7 @@ function sb_display_sermons($options = array()) {
 			echo " <span class=\"sermon-date\">".__('on', $sermon_domain)." ".sb_formatted_date ($sermon)."</span>";
 		if ($display_player)
 			sb_display_mini_player($sermon);
-		echo ".</li>\r";
+		echo "</li>\r";
 	}
 	echo "</ul>\r";
 }
@@ -214,7 +214,7 @@ function sb_widget_sermon( $args, $widget_args = 1 ) {
 			echo " <span class=\"sermon-date\">".__(' on ', $sermon_domain).sb_formatted_date ($sermon)."</span>";
 		if ($player)
 			sb_display_mini_player($sermon, $i);
-		echo ".</li>";
+		echo "</li>";
 	}
 	echo "</ul>";
 	echo $after_widget;
