@@ -1136,20 +1136,8 @@ function sb_get_flash_player_colour ($type) {
 // Displays the mini flash mp3 player
 function sb_display_mini_player ($sermon, $id=1, $flashvars="") {
 	$filename = sb_first_mp3($sermon, FALSE);
-	if ($filename !="") {
-		$flashvars .= "&foreColor=#".sb_get_flash_player_colour ('foreground');
-		$flashvars .= "&filename=".$filename;
-		if (substr($flashvars, 0, 1) == "&")
-			$flashvars = substr($flashvars, 1);
-		echo " <span class=\"sermon-player\"><embed id=\"oneBitInsert_{$id}\" width=\"10\" height=\"10\"";
-		if (sb_get_flash_player_colour ('background') == 'transparent')
-			echo " wmode=\"transparent\"";
-		else
-			echo " bgcolor=\"0x".sb_get_flash_player_colour ('background')."\"";
-		echo " quality=\"high\"";
-		echo " flashvars=\"".$flashvars."\"";
-		echo " src=\"".SB_PLUGIN_URL."/sb-includes/1bit.swf\"";
-		echo " type=\"application/x-shockwave-flash\"/></span>";
+	if (function_exists("insert_audio_player")) {  
+		insert_audio_player("[audio:$filename]");  
 	}
 }
 ?>
